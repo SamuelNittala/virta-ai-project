@@ -1,11 +1,23 @@
 import React from 'react';
 import PersonList from "./components/PersonList"
-import { Switch, Route, BrowserRouter as Router} from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router, Link} from "react-router-dom";
 
 function App() {
   return (
       <Router>
-        <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/person">Page 1</Link>
+            </li>
+            <li>
+              <Link to="/inactive">Page 2</Link>
+            </li>
+          </ul>
+        </nav>
           <Switch>
             <Route path = "/person">
               <PersonList inactive={false}/>
@@ -14,7 +26,6 @@ function App() {
               <PersonList inactive={true}/>
             </Route>
           </Switch>
-        </div>
       </Router>
   );
 }
